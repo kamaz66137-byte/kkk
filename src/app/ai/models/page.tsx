@@ -4,7 +4,22 @@
  * @description AI介绍专属页面
  */
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+/**
+ * @constant metadata
+ * @description AI模型介绍页面 SEO 元信息
+ */
+export const metadata: Metadata = {
+  title: 'AI模型介绍 - A足球',
+  description: '查看所有接入模型的定位、擅长方向、训练集规模与覆盖联赛，了解每个AI的核心能力边界。',
+  openGraph: {
+    title: 'AI模型介绍 - A足球',
+    description: '查看所有AI模型的定位、训练集规模与覆盖联赛。',
+    type: 'website',
+  },
+};
 import { mokeAi } from '@/moke';
 
 /**

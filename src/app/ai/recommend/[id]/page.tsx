@@ -4,6 +4,7 @@
  * @description AI推荐详情页
  */
 
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { mokeAi, mokeAiRecommend, mokeFeed } from '@/moke';
 import styles from './ai-recommend.module.css';
@@ -14,6 +15,36 @@ import styles from './ai-recommend.module.css';
  */
 interface AiRecommendDetailPageProps {
   readonly params: Promise<{ id: string }>;
+}
+
+/**
+ * @function generateMetadata
+ * @description 生成AI推荐详情页 SEO 元信息
+ * @param {AiRecommendDetailPageProps} props 页面参数
+ * @returns {Promise<Metadata>} SEO 元信息
+ */
+export async function generateMetadata({ params }: AiRecommendDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const feedItem = mokeFeed.items.find((item) => item.id === id);
+
+  if (!feedItem) {
+    return { title: 'AI推荐不存在 - A足球' };
+  }
+
+  const aiMoke = mokeAiRecommend.items.find((item) => item.feed_id === feedItem.id);
+  const aiModel = aiMoke ? mokeAi.items.find((item) => item.id === aiMoke.ai_id) : undefined;
+  const modelName = aiModel?.name ?? 'AI';
+  const riskLabel = aiMoke?.risk ? `风险${aiMoke.risk}` : '';
+
+  return {
+    title: `${feedItem.title} - ${modelName}预测 - A足球`,
+    description: `${feedItem.league} · ${feedItem.match}，${modelName}信心分${aiMoke?.score ?? '-'}，${riskLabel}，查看完整AI预测依据。`,
+    openGraph: {
+      title: `${feedItem.title} - AI预测 - A足球`,
+      description: `${feedItem.league} · ${feedItem.match}，${modelName}预测方案。`,
+      type: 'article',
+    },
+  };
 }
 
 /**

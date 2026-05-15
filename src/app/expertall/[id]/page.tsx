@@ -4,11 +4,26 @@
  * @description 专家推荐列表页
  */
 
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { mokeExperts, mokeFeed } from '@/moke';
 import { Pager } from '@/components/sections/pager';
 import styles from './expertall.module.css';
+
+/**
+ * @constant metadata
+ * @description 专家推荐列表页 SEO 元信息
+ */
+export const metadata: Metadata = {
+  title: '专家推荐 - A足球',
+  description: '汇聚平台最活跃的足球分析师，按命中率排序，快速找到适合自己的专家方案。',
+  openGraph: {
+    title: '专家推荐 - A足球',
+    description: '汇聚最活跃的足球分析师，按命中率排序。',
+    type: 'website',
+  },
+};
 
 interface ExpertAllPageProps {
   params: Promise<{ id: string }>;

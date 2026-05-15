@@ -4,7 +4,22 @@
  * @description 热点资讯列表页
  */
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+/**
+ * @constant metadata
+ * @description 热点资讯页面 SEO 元信息
+ */
+export const metadata: Metadata = {
+  title: '热点资讯 - A足球',
+  description: '汇总赛前伤停、阵容动态、转会消息和赛事前瞻，帮助你在第一时间抓到最有价值的足球资讯。',
+  openGraph: {
+    title: '热点资讯 - A足球',
+    description: '汇总赛前伤停、阵容动态、转会消息和赛事前瞻。',
+    type: 'website',
+  },
+};
 import type { CSSProperties } from 'react';
 import { mokeHot } from '@/moke';
 import { resolveHotCategoryLabel } from '@/moke/hot';

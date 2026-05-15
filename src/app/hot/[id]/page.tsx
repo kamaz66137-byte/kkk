@@ -4,15 +4,48 @@
  * @description 热点资讯详情页
  */
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { mokeHot } from '@/moke';
 import { resolveHotCategoryLabel } from '@/moke/hot';
 import styles from '../hot.module.css';
 
+/**
+ * @interface HotDetailPageProps
+ * @description 热点资讯详情页参数
+ */
 interface HotDetailPageProps {
   readonly params: Promise<{ id: string }>;
 }
+
+/**
+ * @function generateMetadata
+ * @description 生成热点资讯详情页 SEO 元信息
+ * @param {HotDetailPageProps} props 页面参数
+ * @returns {Promise<Metadata>} SEO 元信息
+ */
+export async function generateMetadata({ params }: HotDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const item = mokeHot.items.find((entry) => entry.id === id);
+
+  if (!item) {
+    return { title: '资讯不存在 - A足球' };
+  }
+
+  const categoryLabel = resolveHotCategoryLabel(item.category);
+
+  return {
+    title: `${item.title} - ${categoryLabel} - A足球`,
+    description: item.summary,
+    openGraph: {
+      title: `${item.title} - A足球`,
+      description: item.summary,
+      type: 'article',
+    },
+  };
+}
+
 
 export default async function HotDetailPage({ params }: HotDetailPageProps) {
   const { id } = await params;

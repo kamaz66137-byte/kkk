@@ -4,6 +4,7 @@
  * @description 推荐详情页
  */
 
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { mokeExperts, mokeFeed } from '@/moke';
 import styles from './recommend.module.css';
@@ -14,6 +15,34 @@ import styles from './recommend.module.css';
  */
 interface RecommendDetailPageProps {
   readonly params: Promise<{ id: string }>;
+}
+
+/**
+ * @function generateMetadata
+ * @description 生成推荐详情页 SEO 元信息
+ * @param {RecommendDetailPageProps} props 页面参数
+ * @returns {Promise<Metadata>} SEO 元信息
+ */
+export async function generateMetadata({ params }: RecommendDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const feedItem = mokeFeed.items.find((item) => item.id === id);
+
+  if (!feedItem) {
+    return { title: '推荐不存在 - A足球' };
+  }
+
+  const expert = mokeExperts.experts.find((item) => item.id === feedItem.expert_id);
+  const expertName = expert?.name ?? '专家';
+
+  return {
+    title: `${feedItem.title} - ${expertName}推荐 - A足球`,
+    description: `${feedItem.league} · ${feedItem.match} · ${feedItem.play_types.join('/')}，${expertName}方案详情，${feedItem.date}。`,
+    openGraph: {
+      title: `${feedItem.title} - A足球`,
+      description: `${feedItem.league} · ${feedItem.match}，${expertName}推荐方案。`,
+      type: 'article',
+    },
+  };
 }
 
 /**

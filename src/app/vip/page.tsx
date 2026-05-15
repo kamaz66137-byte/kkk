@@ -1,4 +1,25 @@
+/**
+ * @packageDocumentation
+ * @module app/vip/page
+ * @description VIP专区页面
+ */
+
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+/**
+ * @constant metadata
+ * @description VIP专区页面 SEO 元信息
+ */
+export const metadata: Metadata = {
+  title: 'VIP专区 - A足球',
+  description: '专属高优先级推荐、临场判断入口与数据视图，为认真对待每场比赛的用户提供更深度的分析权益。',
+  openGraph: {
+    title: 'VIP专区 - A足球',
+    description: '专属高优先级推荐、临场判断入口与数据视图。',
+    type: 'website',
+  },
+};
 
 export default function VipPage() {
   return (
