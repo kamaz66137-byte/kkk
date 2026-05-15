@@ -1,0 +1,179 @@
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║          DeepSeek V4  —  完整配置文件                                ║
+# ║          支持 1M 上下文 | Thinking 模式 | FunctionCall | 多轮对话     ║
+# ╚══════════════════════════════════════════════════════════════════════╝
+# 版本：V4（2026-05）
+# 文档：https://api-docs.deepseek.com
+
+# ══════════════════════════════════════════════════════════════════════
+# § 1  模型标识
+# ══════════════════════════════════════════════════════════════════════
+model:
+  id: deepseek-chat                      # 当前稳定版别名（指向 V4）
+  aliases:
+    pro:   deepseek-v4-pro               # 旗舰版：复杂推理 / 长上下文
+    flash: deepseek-v4-flash             # 快速版：低延迟 / 高吞吐
+  deprecated_schedule:
+    v3: "2026-08-01"                     # V3 下线日期（参考）
+    v2: "2026-03-01"                     # V2 已下线
+
+# ══════════════════════════════════════════════════════════════════════
+# § 2  推理参数
+# ══════════════════════════════════════════════════════════════════════
+inference:
+  # ⚠️ thinking=enabled 时 temperature 固定为 1.0，设其他值无效
+  temperature: 1.0                       # 0.0=确定性 | 0.7=平衡 | 1.2+=创意
+  top_p: 0.95                            # 与 temperature 二选一主调，另一个保持默认
+  top_k: 50                              # 候选词 Top-K 截断（可选）
+  max_tokens: 8192                       # 单次最大输出 tokens
+  stream: true                           # 流式输出，降低首字节延迟
+  presence_penalty: 0.0                  # 话题重复惩罚 [-2.0, 2.0]
+  frequency_penalty: 0.0                 # 词频重复惩罚 [-2.0, 2.0]
+  stop: []                               # 自定义停止词列表
+
+# ══════════════════════════════════════════════════════════════════════
+# § 3  Thinking / 推理链（Beta）
+# ══════════════════════════════════════════════════════════════════════
+thinking:
+  type: enabled                          # enabled | disabled
+  budget_tokens: 16000                   # 推理链最大 tokens（建议 8K-32K）
+  # ⚠️ 多轮对话：每轮 assistant 消息必须完整保留 reasoning_content 字段
+  #    缺失将导致 API 返回 400 错误
+  preserve_reasoning_content: true
+
+# ══════════════════════════════════════════════════════════════════════
+# § 4  上下文治理
+# ══════════════════════════════════════════════════════════════════════
+context_governance:
+  max_context_tokens: 1000000            # V4 最大支持 1M tokens，可按业务需要调低
+  context_window_strategy: sliding       # sliding | truncate | summarize
+  system_prompt_pinning: true            # system prompt 始终保留不被裁剪
+  token_budget_alert_threshold: 0.85     # 达到 85% 时触发告警
+  auto_summarize_threshold: 0.90         # 达到 90% 时自动摘要历史
+
+# ══════════════════════════════════════════════════════════════════════
+# § 5  消息结构规范
+# ══════════════════════════════════════════════════════════════════════
+message_structure:
+  roles:
+    - system                             # 系统提示词，仅第一条
+    - user                               # 用户输入
+    - assistant                          # 模型回复（含 reasoning_content）
+    - tool                               # 工具调用结果
+  system_prompt:
+    position: first                      # 必须是消息列表第一条
+    max_tokens: 4096                     # 建议上限
+  assistant_message:
+    required_fields_in_thinking_mode:
+      - content                          # 最终回复内容
+      - reasoning_content                # ⚠️ 思考模式多轮必填，否则 400
+
+# ══════════════════════════════════════════════════════════════════════
+# § 6  工具调用（Function Call）
+# ══════════════════════════════════════════════════════════════════════
+tool_calling:
+  enabled: true
+  tool_choice: auto                      # auto | none | required | {type: function, function: {name: ...}}
+  parallel_tool_calls: true              # 允许并行调用多个工具
+  max_parallel_calls: 5                  # 单轮最多并行工具数
+  strict_schema: true                    # 严格按照 JSON Schema 生成参数
+
+# ══════════════════════════════════════════════════════════════════════
+# § 7  响应格式
+# ══════════════════════════════════════════════════════════════════════
+response_format:
+  type: text                             # text | json_object | json_schema
+  # 启用 json_object 时，system/user prompt 须包含 "JSON" 字样
+  json_schema:                           # 仅 type=json_schema 时生效
+    strict: true
+    schema: {}                           # 填入 JSON Schema 对象
+
+# ══════════════════════════════════════════════════════════════════════
+# § 8  前缀续写（Beta）
+# ══════════════════════════════════════════════════════════════════════
+prefix_completion:
+  enabled: false                         # 开启后最后一条 assistant 消息作为前缀
+  # ⚠️ prefix 模式与 thinking 模式不兼容，二者不可同时启用
+
+# ══════════════════════════════════════════════════════════════════════
+# § 9  提示词缓存（KV Cache）
+# ══════════════════════════════════════════════════════════════════════
+prompt_cache:
+  enabled: true
+  # 缓存命中：system prompt + 历史消息前缀
+  # 命中后 cached_tokens 费率 = 原价 × 0.1（节省 90%）
+  min_cacheable_tokens: 1024             # 低于此值不触发缓存
+  cache_ttl_seconds: 3600                # 缓存有效期（秒）
+
+# ══════════════════════════════════════════════════════════════════════
+# § 10  模型路由规则
+# ══════════════════════════════════════════════════════════════════════
+routing:
+  task_router_rules:
+    - name: complex_reasoning
+      condition: "task_type in [analysis, coding, math, research]"
+      target_model: deepseek-v4-pro
+      thinking: enabled
+    - name: quick_response
+      condition: "task_type in [qa, summary, translation, classification]"
+      target_model: deepseek-v4-flash
+      thinking: disabled
+    - name: long_document
+      condition: "input_tokens > 100000"
+      target_model: deepseek-v4-pro
+      thinking: disabled                 # 超长文档关闭 thinking 节省预算
+  fallback_model: deepseek-v4-flash
+  retry_on_error:
+    max_attempts: 3
+    backoff_seconds: [1, 2, 4]
+
+# ══════════════════════════════════════════════════════════════════════
+# § 11  安全与内容过滤
+# ══════════════════════════════════════════════════════════════════════
+safety:
+  content_filter: enabled
+  sensitive_category_block:
+    - violence
+    - illegal_activity
+    - personal_privacy
+  output_sanitization: true              # 自动移除潜在 PII
+  injection_detection: true             # Prompt Injection 检测
+
+# ══════════════════════════════════════════════════════════════════════
+# § 12  成本控制
+# ══════════════════════════════════════════════════════════════════════
+cost_control:
+  # 2026-05 促销期定价（参考，以官网为准）
+  pricing_notes:
+    v4_pro_input_per_1m:  "2.00 USD (cached: 0.20 USD)"
+    v4_pro_output_per_1m: "8.00 USD"
+    v4_flash_input_per_1m:  "0.27 USD (cached: 0.027 USD)"
+    v4_flash_output_per_1m: "1.10 USD"
+  daily_budget_usd: 50.0                 # 每日消费上限（超出自动熔断）
+  alert_threshold_usd: 40.0             # 达到此金额发送告警
+
+# ══════════════════════════════════════════════════════════════════════
+# § 13  可观测性
+# ══════════════════════════════════════════════════════════════════════
+observability:
+  request_logging: true
+  log_fields:
+    - request_id
+    - model
+    - input_tokens
+    - output_tokens
+    - cached_tokens
+    - reasoning_tokens
+    - latency_ms
+    - finish_reason
+  tracing: opentelemetry                 # opentelemetry | datadog | none
+  metrics_export_interval_seconds: 60
+
+# ══════════════════════════════════════════════════════════════════════
+# § 14  超时与限流
+# ══════════════════════════════════════════════════════════════════════
+rate_limiting:
+  requests_per_minute: 60
+  tokens_per_minute: 2000000
+  timeout_seconds: 120                   # 请求超时（流式建议调高）
+  connect_timeout_seconds: 10
