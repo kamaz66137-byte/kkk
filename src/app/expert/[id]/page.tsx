@@ -4,6 +4,7 @@
  * @description 专家详情页
  */
 
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -16,6 +17,36 @@ import styles from './expert.module.css';
  */
 interface ExpertDetailPageProps {
   readonly params: Promise<{ id: string }>;
+}
+
+/**
+ * @function generateMetadata
+ * @description 生成专家详情页 SEO 元信息
+ * @param {ExpertDetailPageProps} props 页面参数
+ * @returns {Promise<Metadata>} SEO 元信息
+ */
+export async function generateMetadata({ params }: ExpertDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const expert = mokeExperts.experts.find((item) => item.id === id);
+
+  if (!expert) {
+    return { title: '专家不存在 - A足球' };
+  }
+
+  const winRate = expert.recent_total > 0
+    ? Math.round((expert.recent_hit / expert.recent_total) * 100)
+    : 0;
+  const specialities = expert.specialities?.join('、') ?? '足球分析';
+
+  return {
+    title: `${expert.name} - 专家推荐 - A足球`,
+    description: `${expert.name}，擅长${specialities}，近${expert.recent_total}中${expert.recent_hit}，命中率${winRate}%。查看最新推荐方案。`,
+    openGraph: {
+      title: `${expert.name} - 专家推荐 - A足球`,
+      description: `近${expert.recent_total}中${expert.recent_hit}，命中率${winRate}%，擅长${specialities}。`,
+      type: 'profile',
+    },
+  };
 }
 
 /**

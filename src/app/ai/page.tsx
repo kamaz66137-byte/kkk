@@ -4,7 +4,22 @@
  * @description AI推荐页面
  */
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+/**
+ * @constant metadata
+ * @description AI推荐页面 SEO 元信息
+ */
+export const metadata: Metadata = {
+  title: 'AI预测 - A足球',
+  description: '融合多模型管线，输出信心分、风险分布与优先推荐，为你提供每场比赛的AI智能预测分析。',
+  openGraph: {
+    title: 'AI预测 - A足球',
+    description: '融合多模型管线，输出信心分、风险分布与优先推荐。',
+    type: 'website',
+  },
+};
 import { mokeAi, mokeAiRecommend, mokeFeed } from '@/moke';
 
 /**

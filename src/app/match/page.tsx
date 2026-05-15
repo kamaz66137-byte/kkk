@@ -4,7 +4,22 @@
  * @description 足球赛事基础页（移动端优先）
  */
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+/**
+ * @constant metadata
+ * @description 足球赛事页面 SEO 元信息
+ */
+export const metadata: Metadata = {
+  title: '足球赛事 - A足球',
+  description: '聚合今日重点场次与推荐入口，优先展示可直接进入的推荐详情，掌握赛事全貌。',
+  openGraph: {
+    title: '足球赛事 - A足球',
+    description: '聚合今日重点场次与推荐入口，优先展示可直接进入的推荐详情。',
+    type: 'website',
+  },
+};
 import { mokeFeed, mokeQuickEntry } from '@/moke';
 
 /**

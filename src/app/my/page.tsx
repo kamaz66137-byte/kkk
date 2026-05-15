@@ -1,4 +1,25 @@
+/**
+ * @packageDocumentation
+ * @module app/my/page
+ * @description 个人中心页面
+ */
+
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+/**
+ * @constant metadata
+ * @description 个人中心页面 SEO 元信息
+ */
+export const metadata: Metadata = {
+  title: '我的 - A足球',
+  description: '集中管理你的收藏、浏览历史、订阅内容与会员权益，一站式个人中心。',
+  openGraph: {
+    title: '我的 - A足球',
+    description: '集中管理收藏、历史、订阅、会员与设置。',
+    type: 'website',
+  },
+};
 
 const heroStats = [
   { label: '收藏', value: '12', hint: '关注的专家与推荐' },
