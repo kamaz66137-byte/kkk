@@ -1,0 +1,66 @@
+.hc-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: calc(52px + var(--safe-top));
+  padding: var(--safe-top) 14px 0;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.hc-mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.hc-mobile-logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hc-mobile-logo-text {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hc-mobile-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hc-mobile-vip-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+  .hc-mobile-header {
+    display: none;
+  }
+}

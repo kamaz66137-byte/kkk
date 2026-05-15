@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "zkali-mcp": {
+      "command": "node",
+      "args": ["C:\\Users\\a1575\\Desktop\\1\\0\\dist\\server.js"]
+    }
+  }
+}

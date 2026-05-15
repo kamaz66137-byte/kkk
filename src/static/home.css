@@ -1,0 +1,80 @@
+@import "../components/sections/rank-banner/rank-banner.css";
+@import "../components/sections/expert-grid/expert-grid.css";
+@import "../components/sections/live-section/live-section.css";
+@import "../components/sections/feed-section/feed-section.css";
+@import "../components/sections/right-rail/right-rail.css";
+@import "../components/sections/download-bar/download-bar.css";
+
+.hc-page {
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+  background:
+    radial-gradient(1200px 320px at 85% -10%, rgba(254, 65, 68, 0.16), rgba(254, 65, 68, 0) 65%),
+    radial-gradient(900px 280px at 5% -20%, rgba(15, 23, 42, 0.14), rgba(15, 23, 42, 0) 70%),
+    #f3f5f7;
+}
+
+.hc-shell {
+  margin: 0 auto;
+  width: min(100%, 760px);
+}
+
+.hc-main {
+  width: 100%;
+}
+
+
+.hc-topbar,
+.hc-experts,
+.hc-live,
+.hc-filter,
+.hc-feed,
+.hc-download {
+  background: #fff;
+  border-radius: 0;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+}
+
+
+@media (min-width: 768px) {
+  .hc-topbar,
+  .hc-experts,
+  .hc-live,
+  .hc-filter,
+  .hc-feed,
+  .hc-download {
+    border-radius: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .hc-shell {
+    width: min(100%, 1220px);
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .hc-main {
+    min-width: 0;
+  }
+
+  .hc-banner-carousel,
+  .hc-topbar,
+  .hc-experts,
+  .hc-live,
+  .hc-filter,
+  .hc-feed,
+  .hc-download {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 12px;
+  }
+}

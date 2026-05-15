@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "source_url": "local://ai-model-moke",
+    "source_section": "AI模型列表",
+    "extraction_confidence": "CONFIRMED",
+    "last_extracted": "2026-05-15T12:00:00.000Z",
+    "item_count_verified": true,
+    "content_language": "zh-CN"
+  },
+  "items": [
+    {
+      "id": "hc_ai",
+      "name": "HC-AI",
+      "version": "v2.4",
+      "refresh_minutes": 5,
+      "tagline": "混合信号胜平负引擎",
+      "intro": "聚合历史赛果、盘口变化和阵容稳定度，给出不败与胜平负方向的稳健判断。",
+      "focus_directions": ["胜平负", "不败方向", "风险分层"],
+      "focus_matches": ["欧冠", "英超", "德甲"],
+      "training_samples": 286000,
+      "training_period": "2018-2025",
+      "leagues_covered_count": 18,
+      "data_sources": ["历史赛果", "盘口时序", "伤停与首发"]
+    },
+    {
+      "id": "pace_ai",
+      "name": "PACE-AI",
+      "version": "v1.9",
+      "refresh_minutes": 10,
+      "tagline": "节奏与进球区间模型",
+      "intro": "聚焦比赛节奏强弱和进攻转换效率，适合进球数区间及中高波动场次筛选。",
+      "focus_directions": ["比赛节奏", "进球区间", "盘口波动"],
+      "focus_matches": ["法甲", "意甲", "西甲"],
+      "training_samples": 198000,
+      "training_period": "2019-2025",
+      "leagues_covered_count": 15,
+      "data_sources": ["事件级技术统计", "压迫强度", "盘口分歧"]
+    },
+    {
+      "id": "xg_ai",
+      "name": "xG-AI",
+      "version": "v3.1",
+      "refresh_minutes": 8,
+      "tagline": "机会质量与转化模型",
+      "intro": "基于xG/xGA和射门质量分布，擅长识别被低估的强队与强强对话中的真实优势。",
+      "focus_directions": ["xG转化", "射门质量", "强强对话"],
+      "focus_matches": ["英超", "欧冠", "西甲"],
+      "training_samples": 324000,
+      "training_period": "2017-2025",
+      "leagues_covered_count": 21,
+      "data_sources": ["xG事件流", "射门落点", "攻防转换速率"]
+    },
+    {
+      "id": "elo_ai",
+      "name": "ELO-AI",
+      "version": "v2.2",
+      "refresh_minutes": 15,
+      "tagline": "实力评级与冷门预警模型",
+      "intro": "通过ELO强度、主客场偏置和赛程密度进行校正，擅长发现热门方的风险偏差。",
+      "focus_directions": ["实力评级", "主客场修正", "冷门预警"],
+      "focus_matches": ["德甲", "葡超", "日职"],
+      "training_samples": 241000,
+      "training_period": "2016-2025",
+      "leagues_covered_count": 19,
+      "data_sources": ["ELO历史曲线", "赛程密度", "主客场表现"]
+    }
+  ]
+}

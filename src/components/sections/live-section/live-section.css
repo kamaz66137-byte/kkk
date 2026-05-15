@@ -1,0 +1,80 @@
+.hc-live {
+  display: grid;
+  gap: 10px;
+}
+
+.hc-live-card {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.hc-live-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hc-live-tag {
+  color: #fe4144;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.hc-live-status,
+.hc-live-match {
+  color: #444;
+  font-size: 12px;
+}
+
+.hc-live-team-row {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.hc-team-logo {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+.hc-team-name {
+  font-size: 12px;
+  color: #333;
+}
+
+.hc-team-score {
+  margin-left: auto;
+  color: #222;
+  font-size: 13px;
+}
+
+.hc-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.hc-entry-card {
+  background: #fafafa;
+  border: 1px solid #f1f1f1;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.hc-entry-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+}
+
+.hc-entry-subtitle {
+  font-size: 11px;
+  color: #667085;
+}

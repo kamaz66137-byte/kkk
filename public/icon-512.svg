@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="A足球">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="ball" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+  <circle cx="256" cy="198" r="104" fill="url(#ball)"/>
+  <path d="M256 122 204 156l18 58h70l18-58-54-34Z" fill="#0f172a"/>
+  <path d="M204 156 152 178l28 56h24l-18-78Zm104 0 52 22-28 56h-24l18-78Z" fill="#1d4ed8"/>
+  <path d="M180 264 140 310l28 68h48l-36-114Zm152 0-36 114h48l28-68-40-46Z" fill="#0f766e"/>
+  <text x="256" y="390" text-anchor="middle" font-size="86" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">A</text>
+</svg>

@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "source_url": "https://wap.hongcai.163.com/#/",
+    "source_section": "下载提示 + 底部导航",
+    "extraction_confidence": "CONFIRMED",
+    "last_extracted": "2026-05-12T21:26:30.687Z",
+    "item_count_verified": true,
+    "content_language": "zh-CN"
+  },
+  "download_text": "专业足彩预测，下载A足球",
+  "bottom_nav": [
+    { "id": "nav_01", "label": "首页", "href": "/" },
+    { "id": "nav_02", "label": "专家推荐", "href": "/expertall/1" },
+    { "id": "nav_03", "label": "AI算法", "href": "/ai" },
+    { "id": "nav_04", "label": "热点资讯", "href": "/hot" },
+    { "id": "nav_05", "label": "我的", "href": "/my" }
+  ]
+}

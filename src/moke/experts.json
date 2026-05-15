@@ -1,0 +1,132 @@
+{
+  "_meta": {
+    "source_url": "https://wap.hongcai.163.com/#/",
+    "source_section": "红人榜",
+    "extraction_confidence": "CONFIRMED",
+    "last_extracted": "2026-05-12T21:26:30.687Z",
+    "item_count_verified": true,
+    "content_language": "zh-CN"
+  },
+  "title": "红人榜",
+  "banner_image": "https://relottery.ws.126.net/thread/snapshot/20260512/ES2Wt9v.jpg?imageView&thumbnail=750y310&quality=85",
+  "experts": [
+    {
+      "id": "1091",
+      "name": "张路",
+      "specialities": ["英超", "欧冠"],
+      "recent_total": 10,
+      "recent_hit": 7,
+      "avatar": "https://relottery.ws.126.net/user/20170317/WRQrA9.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "354416",
+      "name": "王勤伯",
+      "specialities": ["意甲", "欧联杯"],
+      "recent_total": 10,
+      "recent_hit": 6,
+      "avatar": "https://relottery.nosdn.127.net/user/20170926/f5SEH1.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "1826569",
+      "name": "张艺",
+      "specialities": ["西甲", "德甲"],
+      "recent_total": 10,
+      "recent_hit": 8,
+      "avatar": "https://relottery.nosdn.127.net/user/20180816/XpXvdx.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "579731",
+      "name": "邓福",
+      "recent_total": 10,
+      "recent_hit": 7,
+      "avatar": "https://relottery.nosdn.127.net/user/20180524/2gBwn1.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "1879",
+      "name": "戴维",
+      "recent_total": 10,
+      "recent_hit": 6,
+      "avatar": "https://relottery.ws.126.net/user/20170320/oGb4fz.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "35108",
+      "name": "Borja",
+      "recent_total": 10,
+      "recent_hit": 7,
+      "avatar": "https://relottery.ws.126.net/user/snapshot/20220515/ID7TQ8y.jpeg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "87886",
+      "name": "山城唐老师",
+      "specialities": ["英超", "法甲", "欧冠"],
+      "recent_total": 10,
+      "recent_hit": 9,
+      "avatar": "https://relottery.ws.126.net/user/snapshot/20240914/TinvdMk.png?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "4595515",
+      "name": "曹森",
+      "recent_total": 10,
+      "recent_hit": 6,
+      "avatar": "https://relottery.ws.126.net/user/20201223/HEjw9V.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "1967036",
+      "name": "杨卓",
+      "recent_total": 10,
+      "recent_hit": 7,
+      "avatar": "https://relottery.nosdn.127.net/user/20181127/JVp0Hv.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "5455",
+      "name": "杨健",
+      "specialities": ["西甲", "欧冠"],
+      "recent_total": 10,
+      "recent_hit": 8,
+      "avatar": "https://relottery.ws.126.net/user/20210724/bOpfOE.png?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "1327",
+      "name": "李克",
+      "recent_total": 10,
+      "recent_hit": 6,
+      "avatar": "https://relottery.ws.126.net/user/20190306/7XbV9P.jpeg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "17781305",
+      "name": "陈成吉",
+      "recent_total": 10,
+      "recent_hit": 7,
+      "avatar": "https://relottery.ws.126.net/user/snapshot/20230104/Ttf93S8.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "18222496",
+      "name": "邓锴",
+      "specialities": ["德甲", "意甲"],
+      "recent_total": 10,
+      "recent_hit": 8,
+      "avatar": "https://relottery.ws.126.net/user/snapshot/20251107/S1cMfdE.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "2655668",
+      "name": "蓝色的安联",
+      "recent_total": 10,
+      "recent_hit": 7,
+      "avatar": "https://relottery.ws.126.net/user/20191129/PlyqiO.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "2112049",
+      "name": "江峰",
+      "recent_total": 10,
+      "recent_hit": 6,
+      "avatar": "https://relottery.ws.126.net/user/20190307/022rfa.jpg?imageView&thumbnail=100y100&quality=85"
+    },
+    {
+      "id": "18153313",
+      "name": "苏子阳",
+      "recent_total": 10,
+      "recent_hit": 8,
+      "avatar": "https://relottery.ws.126.net/user/snapshot/20250305/r1ifvAy.jpg?imageView&thumbnail=100y100&quality=85"
+    }
+  ]
+}

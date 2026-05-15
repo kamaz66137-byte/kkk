@@ -1,0 +1,38 @@
+.hc-experts-grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px 6px;
+}
+
+.hc-expert-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  color: #222;
+}
+
+.hc-expert-record {
+  color: #ef4444;
+  line-height: 1.2;
+}
+
+.hc-expert-specialities {
+  color: #0f766e;
+  line-height: 1.2;
+}
+
+.hc-expert-rate {
+  color: #64748b;
+  line-height: 1.2;
+}
+
+.hc-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  display: block;
+  flex-shrink: 0;
+  object-fit: cover;
+}

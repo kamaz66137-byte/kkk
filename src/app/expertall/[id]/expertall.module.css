@@ -1,0 +1,247 @@
+.page {
+  min-height: 100dvh;
+  background: #f1f5f9;
+  padding: 12px var(--spacing-md) 24px;
+}
+
+.wrap {
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+}
+
+.cardLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  padding: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cardLink:hover .card {
+  border-color: #fecaca;
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.08);
+  transform: translateY(-1px);
+}
+
+.rank {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  min-width: 52px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+  flex-shrink: 0;
+}
+
+.main {
+  min-width: 0;
+  flex: 1;
+}
+
+.name {
+  color: #0f172a;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.meta {
+  margin-top: 4px;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tags {
+  margin-top: 4px;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.side {
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+}
+
+.count {
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.countLabel {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.footer {
+  margin-top: 16px;
+}
+
+.pager {
+  display: grid;
+  grid-template-columns: minmax(88px, auto) 1fr minmax(88px, auto);
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #dbe3ee;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  padding: 8px;
+}
+
+.pager > :first-child {
+  justify-self: start;
+}
+
+.pager > :last-child {
+  justify-self: end;
+}
+
+.pageBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  min-width: 96px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.pager a.pageBtn,
+.pager a.pageBtn:link,
+.pager a.pageBtn:visited,
+.pager span.pageBtn {
+  color: #dc2626 !important;
+}
+
+.pageBtn:hover {
+  background: #fff1f2;
+  border-color: #fda4af;
+  color: #b91c1c;
+}
+
+.pager a.pageBtn:hover,
+.pager a.pageBtn:active {
+  color: #b91c1c !important;
+}
+
+.pageBtnDisabled {
+  border-color: #e2e8f0;
+  background: #f8fafc;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.pager .pageBtnDisabled {
+  color: #94a3b8 !important;
+}
+
+.pageStat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 110px;
+  text-align: center;
+  justify-self: center;
+}
+
+@media (min-width: 1024px) {
+  .page {
+    padding: 20px var(--spacing-lg) 30px;
+  }
+
+  .list {
+    gap: 12px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .footer {
+    margin-top: 18px;
+  }
+
+  .pager {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .pageBtn {
+    min-height: 36px;
+    min-width: 104px;
+    font-size: 13px;
+  }
+
+  .pageStat {
+    min-height: 36px;
+    min-width: 120px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageBtn {
+    min-width: 88px;
+    min-height: 32px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+
+  .pageStat {
+    min-height: 32px;
+    min-width: 100px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+}

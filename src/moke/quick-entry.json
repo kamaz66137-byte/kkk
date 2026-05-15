@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "source_url": "https://wap.hongcai.163.com/#/",
+    "source_section": "推荐条 + 快捷入口",
+    "extraction_confidence": "CONFIRMED",
+    "last_extracted": "2026-05-12T21:26:30.687Z",
+    "item_count_verified": true,
+    "content_language": "zh-CN"
+  },
+  "recommendations": [
+    {
+      "id": "rec_01",
+      "tag": "推荐",
+      "match_date": "05-13",
+      "status": "进行中 90′",
+      "home": "奥萨苏纳",
+      "home_logo": "https://relottery.ws.126.net/nano_team/snapshot/soccer/5_10749.png?imageView&thumbnail=46y46&quality=85",
+      "home_score": "0",
+      "away": "马竞",
+      "away_logo": "https://relottery.ws.126.net/nano_team/snapshot/soccer/5_10251.png?imageView&thumbnail=46y46&quality=85",
+      "away_score": "2"
+    },
+    {
+      "id": "rec_02",
+      "tag": "推荐",
+      "match_date": "05-13",
+      "status": "加 -1′",
+      "home": "南安普敦",
+      "home_logo": "https://relottery.ws.126.net/nano_team/snapshot/soccer/5_10182.png?imageView&thumbnail=46y46&quality=85",
+      "home_score": "1",
+      "away": "米堡",
+      "away_logo": "https://relottery.ws.126.net/nano_team/snapshot/soccer/5_10004.png?imageView&thumbnail=46y46&quality=85",
+      "away_score": "1"
+    }
+  ],
+  "entry_cards": [
+    { "id": "entry_01", "title": "临场方案", "subtitle": "即时解读" },
+    { "id": "entry_02", "title": "免费专区", "subtitle": "6个新方案" }
+  ],
+  "filters": ["全部", "足球"]
+}
